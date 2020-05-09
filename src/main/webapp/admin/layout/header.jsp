@@ -17,7 +17,9 @@
     
     </head>
     <body>
-
+        <div class="container-fluid page-wrapper toggled">
+            <div class="row flex-xl-nowrap">
+              <main class="col-md-12 col-xl-12 py-md-3 pl-md-5 bd-content" role="main">
         <header class="navbar  fixed-top navbar-expand flex-column flex-md-row bd-navbar header">
             <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">
                 <img width="54" src="${pageContext.request.contextPath}/assets/images/logo.png" />
