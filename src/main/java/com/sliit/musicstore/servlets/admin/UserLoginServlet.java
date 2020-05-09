@@ -1,4 +1,4 @@
-package com.sliit.musicstore.controllers.admin;
+package com.sliit.musicstore.servlets.admin;
 
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import com.sliit.musicstore.exceptions.MusicStoreException;
 import com.sliit.musicstore.models.User;
 import com.sliit.musicstore.services.UserService;
 
-public class UserLoginController extends HttpServlet {
+public class UserLoginServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException  {
 		HttpSession session =  req.getSession();

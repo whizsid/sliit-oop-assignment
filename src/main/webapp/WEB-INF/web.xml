@@ -10,12 +10,17 @@
      
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.sliit.musicstore.controllers.admin.UserLoginController</servlet-class>
+        <servlet-class>com.sliit.musicstore.servlets.admin.UserLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.sliit.musicstore.servlets.admin.UserLogoutServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>Index</servlet-name>
-        <servlet-class>com.sliit.musicstore.controllers.admin.IndexController</servlet-class>
+        <servlet-class>com.sliit.musicstore.servlets.admin.IndexServlet</servlet-class>
     </servlet>
    
     <servlet-mapping>
@@ -26,5 +31,11 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/admin/login</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/admin/logout</url-pattern>
     </servlet-mapping>
 </web-app>
