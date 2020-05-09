@@ -3,7 +3,7 @@ package com.sliit.musicstore.services;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import com.sliit.musicstore.dao.UserDAO;
+import com.sliit.musicstore.dao.UserDao;
 import com.sliit.musicstore.exceptions.MusicStoreException;
 import com.sliit.musicstore.models.User;
 
@@ -24,24 +24,21 @@ public class UserService {
      * @throws MusicStoreException
      */
     public static User login(String email, String password) throws MusicStoreException, NoSuchAlgorithmException {
-        User user = UserDAO.findByEmail(email);
-
-        if(user == null){
-            throw new MusicStoreException("Can not find a user for the given email address.");
-        }
-
+        System.out.println(email);
+        
         try {
-            if(user.getPassword() != hashPassword(password)){
-                throw new MusicStoreException("Passwords not matching!");
+            User user = UserDao.findByLoginCredentials(email, hashPassword(password));
+
+            if(user ==null){
+                throw new MusicStoreException("Can not find a user for the given email address and password");
             }
             
+            loggedUser = user;
+
+            return user;
         } catch (NoSuchAlgorithmException e){
-            throw e;
+            throw new MusicStoreException("Internel server error.");
         }
-
-        loggedUser = user;
-
-        return user;
     }
 
     /**
@@ -64,5 +61,13 @@ public class UserService {
 
     public static User getLoggedUser(){
         return loggedUser;
+    }
+
+    public static User loginById(int userId){
+        User user = UserDao.find(userId);
+
+        loggedUser = user;
+
+        return user;
     }
 }

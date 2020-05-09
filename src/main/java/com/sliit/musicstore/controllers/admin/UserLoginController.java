@@ -1,8 +1,7 @@
-package com.sliit.musicstore.controllers;
+package com.sliit.musicstore.controllers.admin;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +16,9 @@ import com.sliit.musicstore.services.UserService;
 public class UserLoginController extends HttpServlet {
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException  {
+		HttpSession session =  req.getSession();
+		session.removeAttribute("userId");
+		session.removeAttribute("userName");
 		res.setContentType("text/html");
 		req.getRequestDispatcher("login.jsp").forward(req, res);
 	}
@@ -29,7 +31,7 @@ public class UserLoginController extends HttpServlet {
 		req.setAttribute("email", email);
 
 		if(redirect==null){
-			redirect = "/";
+			redirect = "/admin";
 		}
 
 		try {
