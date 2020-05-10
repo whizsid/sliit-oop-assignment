@@ -24,6 +24,18 @@
         <servlet-name>UserSearch</servlet-name>
         <servlet-class>com.sliit.musicstore.servlets.admin.crud.user.UserSearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserCreate</servlet-name>
+        <servlet-class>com.sliit.musicstore.servlets.admin.crud.user.UserCreateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserUpdate</servlet-name>
+        <servlet-class>com.sliit.musicstore.servlets.admin.crud.user.UserUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserDelete</servlet-name>
+        <servlet-class>com.sliit.musicstore.servlets.admin.crud.user.UserDeleteServlet</servlet-class>
+    </servlet>
    
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
@@ -35,15 +47,28 @@
         <url-pattern>/admin/login</url-pattern>
     </servlet-mapping>
 
-
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/admin/logout</url-pattern>
     </servlet-mapping>
 
-
     <servlet-mapping>
         <servlet-name>UserSearch</servlet-name>
         <url-pattern>/admin/user/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserCreate</servlet-name>
+        <url-pattern>/admin/user/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserUpdate</servlet-name>
+        <url-pattern>/admin/user/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserDelete</servlet-name>
+        <url-pattern>/admin/user/delete</url-pattern>
     </servlet-mapping>
 </web-app>

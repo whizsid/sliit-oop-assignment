@@ -73,19 +73,19 @@
                             <span>General</span>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/admin">
                                 <i class="fa fa-tachometer"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/admin/user/search">
                                 <i class="fa fa-user"></i>
                                 <span>Users</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/admin/music/search">
                                 <i class="fa fa-music"></i>
                                 <span>Songs</span>
                             </a>
