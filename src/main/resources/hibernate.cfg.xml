@@ -15,9 +15,11 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">warurami</property>
 
- 
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- add classes to map from here -->
         <mapping class="com.sliit.musicstore.models.UserType" />
         <mapping class="com.sliit.musicstore.models.User" />
+        <mapping class="com.sliit.musicstore.models.Genre" />
+        <mapping class="com.sliit.musicstore.models.Music" />
     </session-factory>
 </hibernate-configuration>

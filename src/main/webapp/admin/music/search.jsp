@@ -39,8 +39,8 @@
                             <td>${user.getEmail()}</td>
                             <td>${user.getType()!=null? user.getType().getName() : "N/A"}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/admin/user/update?userId=${user.getId()}" class="search-action blacked"><i class="fa fa-edit"></i></a>
-                                <a href="${pageContext.request.contextPath}/admin/user/delete?userId=${user.getId()}" class="search-action blacked"><i class="fa fa-ban"></i></a>
+                                <a href="${pageContext.request.contextPath}/admin/user/update?userId=${user.getId()}" class="search-action"><i class="fa fa-edit"></i></a>
+                                <a href="${pageContext.request.contextPath}/admin/user/delete?userId=${user.getId()}" class="search-action"><i class="fa fa-ban"></i></a>
                             </td>
                         </tr>
                     </c:forEach>
@@ -50,15 +50,15 @@
         <div class="clearfix">
             <div class="hint-text">Showing <b>${ perPage * page > count? count - (perPage * (page-1)) : perPage}</b> out of <b>${count}</b> entries</div>
             <ul class="pagination">
-                <li class='page-item ${page -1 >= 1? "":"disabled" }'><a class="blacked" href="#">Previous</a></li>
+                <li class='page-item ${page -1 >= 1? "":"disabled" }'><a href="#">Previous</a></li>
                 <c:forEach begin="${(page-2) < 1 ? 1 : (page - 2)}" end="${page+2}" var="index">
                     <c:if test="${ index >= 1 && index <= Math.ceil(count/perPage) }">
                         <li class='page-item ${index==page? "active" : ""}'>
-                            <a href="${pageContext.request.contextPath}/admin/user/search?page=${index}&perPage=${perPage}" class="page-link blacked">${index}</a>
+                            <a href="${pageContext.request.contextPath}/admin/user/search?page=${index}&perPage=${perPage}" class="page-link">${index}</a>
                         </li>
                     </c:if>
                 </c:forEach>
-                <li class='page-item ${page + 1 <= Math.ceil(count/perPage)? "":"disabled" }'><a href="#" class="page-link blacked">Next</a></li>
+                <li class='page-item ${page + 1 <= Math.ceil(count/perPage)? "":"disabled" }'><a href="#" class="page-link">Next</a></li>
             </ul>
         </div>
     </div>

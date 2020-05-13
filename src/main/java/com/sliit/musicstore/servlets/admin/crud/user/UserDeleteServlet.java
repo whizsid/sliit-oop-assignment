@@ -1,6 +1,7 @@
 package com.sliit.musicstore.servlets.admin.crud.user;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,5 +37,32 @@ public class UserDeleteServlet extends HttpServlet{
             return;
         }
 
+    }
+
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException  {
+        try {
+            ServletUtil.applyAdminAuthMiddleware(req);
+        } catch (Exception e){
+            res.setStatus(403);
+            return;
+        }
+
+        try {
+            String[] delete = req.getParameterValues("delete");
+
+            for (int i = 0; i < delete.length; i++) {
+                String id = delete[i];
+                int parsedId = Integer.parseInt(id);
+                User user = UserService.find(parsedId);
+                if (user!=null){
+                    UserService.delete(user);
+                }
+            }
+
+            res.sendRedirect(req.getContextPath()+"/admin/user/search?deleted=selected");
+        } catch(NumberFormatException e){
+            res.setStatus(404);
+            return;
+        }
     }
 }

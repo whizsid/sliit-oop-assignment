@@ -41,11 +41,11 @@
                         <img width="32" src="${pageContext.request.contextPath}/assets/images/avatar.png" class="avatar" alt="Avatar">
                         ${user.name} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
-                        <li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></li>
-                        <li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
+                        <li><a href="#" class="dropdown-item blacked"><i class="fa fa-user-o"></i> Profile</a></li>
+                        <li><a href="#" class="dropdown-item blacked"><i class="fa fa-calendar-o"></i> Calendar</a></li>
+                        <li><a href="#" class="dropdown-item blacked"><i class="fa fa-sliders"></i> Settings</a></li>
                         <li class="divider dropdown-divider"></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/logout" class="dropdown-item"><i class="material-icons"></i> Logout</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/logout" class="dropdown-item blacked"><i class="fa fa-sign-out"></i> Logout</a></li>
                     </ul>
                 </li>
             </ul>

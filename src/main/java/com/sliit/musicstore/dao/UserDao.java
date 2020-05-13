@@ -56,7 +56,15 @@ public class UserDao {
 
     public static void delete(User user){
         Session currentSession = HibernateUtil.openCurrentSession();
-        currentSession.delete(user);
+        Transaction transaction = currentSession.beginTransaction();
+
+        try {
+            currentSession.delete(user);
+            currentSession.flush();
+            transaction.commit();
+        } catch (Exception e){
+            transaction.rollback();
+        }
     }
 
     public static List<User> getPaginated(int limit, int offset){
@@ -149,6 +157,22 @@ public class UserDao {
         } catch (Exception e){
             transaction.rollback();
             throw e;
+        }
+    }
+
+    public static List<User> getAll(){
+        Session currentSession = HibernateUtil.openCurrentSession();
+
+        Transaction transaction = currentSession.beginTransaction();
+        try {
+            Query<User> query = currentSession.createQuery("from User");
+            List<User> users = (List<User>) query.getResultList();
+            transaction.commit();
+            return users;
+        } catch (Exception e){
+            transaction.rollback();
+            System.out.println(e);
+            return new ArrayList<User>();
         }
     }
 

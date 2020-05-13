@@ -18,7 +18,6 @@ public class HibernateUtil {
         }
 
         currentSession = getSessionFactory().openSession();
-
         return currentSession;
     }
 

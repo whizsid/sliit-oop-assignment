@@ -1,11 +1,17 @@
 .header {
-	background: #009688;
+	background: #f16f4f;
 }
 
 a:active,
 a:link,
 a:visited {
-	color: #90caf9 !important;
+	color: #f0f0f0 !important;
+}
+
+a.blacked:active,
+a.blacked:link,
+a.blacked:visited {
+	color: #404040 !important;
 }
 
 .breadcrumb {
@@ -131,7 +137,7 @@ body {
 	position: fixed;
 	top: 64px;
     z-index: 999;
-    background: #009688
+    background: #f16f4f
 }
 
 .sidebar-wrapper ul {
